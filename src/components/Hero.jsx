@@ -110,7 +110,7 @@ export default function Hero() {
               }}>
                 {/* Placeholder - replace src with actual photo */}
                 <img
-                  src="https://ui-avatars.com/api/?name=Ashutosh+Kasaudhan&size=320&background=EFF6FF&color=2563EB&font-size=0.33"
+                  src="/ashu.jpg""
                   alt="Ashutosh Kasaudhan"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   onError={(e) => {
