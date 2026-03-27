@@ -110,7 +110,7 @@ export default function Hero() {
               }}>
                 {/* Placeholder - replace src with actual photo */}
                 <img
-                  src="/ashu.jpg""
+                  src="/ashu.jpg"
                   alt="Ashutosh Kasaudhan"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   onError={(e) => {
