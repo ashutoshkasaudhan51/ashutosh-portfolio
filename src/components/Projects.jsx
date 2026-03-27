@@ -10,6 +10,7 @@ const projects = [
     features: ['Component-based structure', 'Responsive layout', 'Clean and minimal interface'],
     tags: ['React', 'Tailwind CSS', 'JavaScript'],
     dark: false,
+    image: '/project1.png',
     link: '#',
   },
   {
@@ -20,6 +21,7 @@ const projects = [
     features: ['Customer interface', 'Worker dashboard', 'Admin control system', 'Real-time data handling'],
     tags: ['React Native CLI', 'Supabase', 'JavaScript'],
     dark: true,
+    image: null,
     link: '#',
   },
 ];
@@ -59,17 +61,24 @@ export default function Projects() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = 'var(--shadow-md)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'var(--shadow)'; }}
             >
-              {/* Screenshot placeholder */}
+              {/* Screenshot */}
               <div style={{
                 height: '180px', background: p.dark ? '#1E293B' : 'var(--blue-light)',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                overflow: 'hidden',
               }}>
-                <div style={{ color: p.dark ? '#475569' : '#93C5FD', opacity: 0.8 }}>
-                  {p.dark ? <Smartphone size={36} /> : <Globe size={36} />}
-                </div>
-                <span style={{ fontSize: '13px', color: p.dark ? '#475569' : '#93C5FD', fontWeight: 500 }}>
-                  Screenshot coming soon
-                </span>
+                {p.image ? (
+                  <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <>
+                    <div style={{ color: p.dark ? '#475569' : '#93C5FD', opacity: 0.8 }}>
+                      {p.dark ? <Smartphone size={36} /> : <Globe size={36} />}
+                    </div>
+                    <span style={{ fontSize: '13px', color: p.dark ? '#475569' : '#93C5FD', fontWeight: 500 }}>
+                      Screenshot coming soon
+                    </span>
+                  </>
+                )}
               </div>
 
               {/* Content */}
