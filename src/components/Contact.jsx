@@ -8,15 +8,23 @@ export default function Contact() {
 
   const handle = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate send (replace with your email API/formspree/emailjs)
-    setTimeout(() => {
-      setLoading(false);
-      setSent(true);
-      setForm({ name: '', email: '', message: '' });
-    }, 1200);
+    try {
+      const response = await fetch('https://formspree.io/f/xnjoppgr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    setLoading(false);
   };
 
   const contacts = [
@@ -45,7 +53,6 @@ export default function Contact() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }} className="contact-grid">
 
-          {/* Contact info */}
           <div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
               {contacts.map((c, i) => (
@@ -73,7 +80,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
           <div>
             {sent ? (
               <div style={{
