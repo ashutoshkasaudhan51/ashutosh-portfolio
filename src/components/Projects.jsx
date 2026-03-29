@@ -21,7 +21,7 @@ const projects = [
     features: ['Customer interface', 'Worker dashboard', 'Admin control system', 'Real-time data handling'],
     tags: ['React Native CLI', 'Supabase', 'JavaScript'],
     dark: true,
-    image: null,
+    image: '/wholesalebusinessapp.png',
     link: '#',
   },
 ];
